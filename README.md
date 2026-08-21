@@ -20,6 +20,3 @@ Para rodar: `lein run` (depois de o back estar no ar).
 
 ## Pré-requisitos
 [Leiningen](https://github.com/technomancy/leiningen) 2.0.0 ou superior.
-
-## Atenção antes de publicar
-O arquivo `back/src/nota5/apis.clj` tem chaves de API de serviços externos escritas diretamente no código. Troque essas chaves por variáveis de ambiente antes de deixar este repositório público.
