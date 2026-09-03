@@ -2,7 +2,7 @@
 
 Sistema de controle de calorias em Clojure, dividido em duas partes que conversam entre si:
 
-## back/ (`nota5`)
+## back
 API REST (Compojure/Ring) responsável por:
 - Cadastro do usuário (sexo, idade, peso) — `POST /cadastro`, `GET /cadastro`
 - Registro de ganho calórico (alimentos) — `POST /ganho`
@@ -13,7 +13,7 @@ Para calcular as calorias de verdade, a API consulta serviços externos (traduç
 
 Para rodar: `lein ring server` (sobe em `localhost:3001`).
 
-## front/ (`calcapp`)
+## front
 Cliente de linha de comando (CLI) que fala com a API acima: cadastro, lançamento de ganho/perda calórica e consulta de extrato.
 
 Para rodar: `lein run` (depois de o back estar no ar).
