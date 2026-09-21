@@ -1,6 +1,6 @@
-(defproject nota5 "0.1.0-SNAPSHOT"
-  :description "API de Calculadora de Calorias que precisamos NOTA 5"
-  :url "http://example.com/nota5"
+(defproject calorias-api "0.1.0-SNAPSHOT"
+  :description "API REST da calculadora de calorias: cadastro de usuário, registro de consumo/queima calórica e extrato por período."
+  :url "http://example.com/calorias-api"
   :min-lein-version "2.0.0"
 
   ;; Lista de dependências necessárias para o funcionamento da API.
@@ -17,7 +17,7 @@
             [lein-midje "3.2.1"]] ;; Plugin para suporte a testes automatizados com Midje.
 
   ;; Define o manipulador principal da aplicação.
-  :ring {:handler nota5.handler/app
+  :ring {:handler calorias-api.handler/app
          :port 3001}
 
   ;; Configuração de perfis específicos para desenvolvimento.
@@ -25,5 +25,4 @@
                                   [ring/ring-mock "0.3.2"]               ;; Ferramenta para testes simulando requisições HTTP.
                                   [midje "1.9.6"]                        ;; Framework de testes para validação de código.
                                   [ring/ring-core "1.7.1"]               ;; Componentes essenciais do framework Ring.
-                                  [ring/ring-jetty-adapter "1.7.1"]]}})  ;; Adaptador para rodar a aplicação no servidor Jetty.
-
+                                  [ring/ring-jetty-adapter "1.7.1"]]}})

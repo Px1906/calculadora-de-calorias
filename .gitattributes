@@ -1,0 +1,6 @@
+* text=auto eol=lf
+
+*.clj text
+*.md text
+*.gitignore text
+*.gitattributes text

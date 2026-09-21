@@ -1,4 +1,4 @@
-(ns nota5.lancamentos) 
+(ns calorias-api.lancamentos)
 
 ;; Função que valida um lançamento financeiro.
 (defn valida? [lancamento]
