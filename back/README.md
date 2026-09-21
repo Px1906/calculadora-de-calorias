@@ -4,7 +4,7 @@ API REST (Clojure) do backend da calculadora de calorias.
 
 ## Prerequisites
 
-You will need [Leiningen][] 2.0.0 or above installed.
+Voce precisara do [Leiningen][] 2.0.0 ou acima instalado.
 
 [leiningen]: https://github.com/technomancy/leiningen
 
@@ -17,12 +17,12 @@ Antes de rodar, defina as variáveis de ambiente com as chaves das APIs externas
 - `CALORIENINJAS_API_KEY`
 - `RAPIDAPI_CALORIES_BURNED_KEY`
 
-## Running
+## Rodar
 
-To start a web server for the application, run:
+Para começar o servidor na web para a aplicação, rode:
 
     lein ring server
 
-## License
+## Licença
 
 Copyright © 2025 FIXME
