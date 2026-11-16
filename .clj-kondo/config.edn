@@ -1,0 +1,3 @@
+{:lint-as {midje.sweet/fact clojure.core/do
+           midje.sweet/facts clojure.core/do}
+ :linters {:refer-all {:exclude [midje.sweet clojure.test]}}}

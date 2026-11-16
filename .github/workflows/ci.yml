@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  lint:
+    name: Lint (clj-kondo)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeLaGuardo/setup-clojure@13.4
+        with:
+          clj-kondo: latest
+      - run: clj-kondo --lint api/src api/test cli/src cli/test --fail-level error
+
+  test-api:
+    name: Testes da API (Midje)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: api
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: DeLaGuardo/setup-clojure@13.4
+        with:
+          lein: latest
+      - uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: m2-api-${{ hashFiles('api/project.clj') }}
+      - run: lein midje
+
+  test-cli:
+    name: Testes do CLI (clojure.test)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cli
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: DeLaGuardo/setup-clojure@13.4
+        with:
+          lein: latest
+      - uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: m2-cli-${{ hashFiles('cli/project.clj') }}
+      - run: lein test

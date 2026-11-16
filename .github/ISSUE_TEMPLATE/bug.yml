@@ -1,0 +1,40 @@
+name: Bug
+description: Reportar um problema
+labels: [bug]
+body:
+  - type: dropdown
+    id: parte
+    attributes:
+      label: Onde aconteceu?
+      options:
+        - api (servidor)
+        - cli (terminal)
+        - Não sei
+    validations:
+      required: true
+  - type: textarea
+    id: descricao
+    attributes:
+      label: O que aconteceu?
+    validations:
+      required: true
+  - type: textarea
+    id: passos
+    attributes:
+      label: Passos para reproduzir
+      placeholder: "1. ...\n2. ...\n3. ..."
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Comportamento esperado
+  - type: input
+    id: versoes
+    attributes:
+      label: Versão do Java / Leiningen
+      placeholder: "java 17, lein 2.11"
+  - type: input
+    id: so
+    attributes:
+      label: Sistema operacional

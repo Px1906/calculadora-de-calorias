@@ -1,4 +1,4 @@
-(ns calcapp.tratamentos
+(ns calorias-cli.entrada
   (:require [java-time :as jt]))
 
 (defn ler-inteiro []
@@ -27,13 +27,20 @@
           (println "Por favor, digite 1 ou 2")
           (recur)))))
 
+(defn ler-opcao
+  "Lê uma opção de menu entre 1 e `maximo`, repetindo até ser válida."
+  [maximo]
+  (let [input (read-line)
+        opcao (when (and input (re-matches #"\d+" input))
+                (Integer/parseInt input))]
+    (if (and opcao (<= 1 opcao maximo))
+      opcao
+      (do
+        (println (str "Por favor, digite um numero entre 1 e " maximo))
+        (recur maximo)))))
+
 (defn ler-opcao-menu []
-    (let [input (read-line)]
-      (if (or (= input "1") (= input "2") (= input "3") (= input "4"))
-        (Integer/parseInt input)
-        (do
-          (println "Por favor, digite um numero entre 1 e 4")
-          (recur)))))
+  (ler-opcao 4))
 
 (defn ler-texto-sem-numeros []
   (let [input (read-line)]
