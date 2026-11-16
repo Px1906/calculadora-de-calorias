@@ -1,3 +1,6 @@
-{:lint-as {midje.sweet/fact clojure.core/do
-           midje.sweet/facts clojure.core/do}
- :linters {:refer-all {:exclude [midje.sweet clojure.test]}}}
+{;; Os testes da API usam Midje com :refer :all; o clj-kondo não conhece as
+ ;; macros dele (fact, =>, background, ?form...), então não acusamos símbolos
+ ;; não resolvidos nesses namespaces.
+ :ns-groups [{:pattern "calorias-api\\..*-test" :name midje-tests}]
+ :config-in-ns {midje-tests {:linters {:unresolved-symbol {:level :off}}}}
+ :linters {:refer-all {:exclude [midje.sweet]}}}
