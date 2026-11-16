@@ -1,6 +1,23 @@
+# Normalização de fins de linha
 * text=auto eol=lf
 
+# Código e configuração
 *.clj text
+*.cljs text
+*.cljc text
+*.edn text
 *.md text
-*.gitignore text
-*.gitattributes text
+*.yml text
+*.json text
+.gitignore text
+.gitattributes text
+.editorconfig text
+
+# Scripts do Windows mantêm CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binários
+*.jar binary
+*.png binary
+*.jpg binary

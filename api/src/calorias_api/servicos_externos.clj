@@ -1,7 +1,8 @@
-(ns calorias-api.apis
+(ns calorias-api.servicos-externos
+  "Integração com as APIs externas: tradução (pt -> en), calorias de alimentos
+  e gasto calórico por atividade. As chaves vêm de variáveis de ambiente."
   (:require [clj-http.client :as http]
-            [cheshire.core :as json]
-            [clojure.string]))
+            [cheshire.core :as json]))
 
 (defn traduzir-texto [texto]
   (let [chave-traducao (System/getenv "RAPIDAPI_TRANSLATE_KEY")
@@ -17,16 +18,21 @@
         body (json/parse-string (:body response) true)]
     (get-in body [:data :translations :translatedText])))
 
-(defn obter-calorias-consumidas [quantidade-gramas alimento]
+(defn obter-calorias-consumidas
+  "Calorias de `quantidade-gramas` do `alimento` (nome em português)."
+  [quantidade-gramas alimento]
   (let [chave-calorie-ninjas (System/getenv "CALORIENINJAS_API_KEY")
         url-nutricao "https://api.calorieninjas.com/v1/nutrition?query="
         query (str quantidade-gramas "g " (first (traduzir-texto alimento)))
         response (http/get (str url-nutricao query)
                            {:headers {"X-Api-Key" chave-calorie-ninjas}})
         body (json/parse-string (:body response) true)]
-    body))
+    (:calories (first (:items body)))))
 
-(defn obter-calorias-queimadas [atividade duracao peso]
+(defn obter-calorias-queimadas
+  "Calorias gastas na `atividade` (nome em português) por `duracao` minutos,
+  para uma pessoa de `peso` kg."
+  [atividade duracao peso]
   (let [chave-calorias-queimadas (System/getenv "RAPIDAPI_CALORIES_BURNED_KEY")
         url-calorias-queimadas "https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned"
         host-calorias-queimadas "calories-burned-by-api-ninjas.p.rapidapi.com"
@@ -34,7 +40,7 @@
                            {:headers {:x-rapidapi-key chave-calorias-queimadas
                                       :x-rapidapi-host host-calorias-queimadas}
                             :query-params {:activity (traduzir-texto atividade)
-                                          :duration duracao
-                                          :weight peso}})
+                                           :duration duracao
+                                           :weight peso}})
         body (json/parse-string (:body response) true)]
-    body))
+    (:total_calories (first body))))

@@ -1,8 +1,34 @@
+# Leiningen / Clojure
 target/
 .lein-*
+.nrepl-port
+.cpcache/
+.clj-kondo/.cache/
+.lsp/.cache/
 *.jar
 *.class
-.nrepl-port
+pom.xml
+pom.xml.asc
+
+# Editores e IDEs
+.vscode/
+.idea/
+.calva/output-window/
+*.iml
+*.swp
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Credenciais e configs locais (NUNCA versionar)
+.env
+*.key
+
+# Logs
+*.log
+
+# Legado
 .hgignore
 .hg/
-.env
