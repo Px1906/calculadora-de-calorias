@@ -2,10 +2,12 @@
 
 Sistema de controle calórico em Clojure: registre o que você come e as atividades físicas que faz, e consulte o extrato e o saldo de calorias de um período. As calorias são calculadas a partir de APIs nutricionais externas.
 
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
+![Status](https://img.shields.io/badge/status-conclu%C3%ADdo-brightgreen)
 ![Clojure](https://img.shields.io/badge/Clojure-1.11-5881d8)
 ![Leiningen](https://img.shields.io/badge/Leiningen-2.x-blue)
 ![Licença](https://img.shields.io/badge/licen%C3%A7a-EPL--2.0-green)
+
+> **Projeto concluído.** O aplicativo está finalizado e não está mais em desenvolvimento ativo.
 
 ## Como funciona
 
@@ -93,9 +95,9 @@ O CI (GitHub Actions) roda o lint com clj-kondo e os testes das duas partes em t
 
 Leia o [CONTRIBUTING.md](CONTRIBUTING.md) antes de abrir um PR.
 
-## Roadmap
+## Histórico
 
-Veja as [issues](../../issues) e o [CHANGELOG](CHANGELOG.md).
+Veja o [CHANGELOG](CHANGELOG.md).
 
 ## Licença
 

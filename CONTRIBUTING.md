@@ -3,12 +3,12 @@
 ## Fluxo de trabalho
 
 1. Crie uma issue descrevendo o que será feito (ou comente numa existente).
-2. Crie uma branch a partir de `master`: `feat/nome`, `fix/nome` ou `chore/nome`.
+2. Crie uma branch a partir de `main`: `feat/nome`, `fix/nome` ou `chore/nome`.
 3. Faça commits pequenos e focados.
 4. Abra um Pull Request preenchendo o template.
 5. Aguarde o CI passar e uma revisão antes do merge.
 
-`master` está sempre funcionando. Não faça push direto nela.
+`main` está sempre funcionando. Não faça push direto nela.
 
 ## Mensagens de commit
 
