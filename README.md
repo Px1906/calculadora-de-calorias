@@ -7,8 +7,6 @@ Sistema de controle calórico em Clojure: registre o que você come e as ativida
 ![Leiningen](https://img.shields.io/badge/Leiningen-2.x-blue)
 ![Licença](https://img.shields.io/badge/licen%C3%A7a-EPL--2.0-green)
 
-> **Projeto concluído.** O aplicativo está finalizado e não está mais em desenvolvimento ativo.
-
 ## Como funciona
 
 ```
